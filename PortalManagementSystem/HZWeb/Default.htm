@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SwfObject2.2Demo</title>
+<script type="text/javascript" src="/Scripts/flash/swfobject.js"></script>
+
+</head>
+<body>
+    <div id="flashcontent">
+    </div>
+    <script type="text/javascript">
+        swfobject.embedSWF("/Scripts/flash/sound.swf", "flashcontent", "300", "120", "9.0.0", "/Scripts/flash/expressInstall.swf", null, null, null);
+        //var so = new SWFObject("/Scripts/flash/sound.swf", "mymovie", "400", "100%", "8", "#336699");
+        //// 画面质量，默认为"high"。 需要说明的是，如果质量设为较低，低版本浏览器可能有错位现象
+        //so.addParam("quality", "low");
+        //// 解决低版本浏览器中弹出层被flash遮挡的问题
+        //so.addParam("wmode", "transparent");
+        ////这里是给Flash添加内联参数
+        ////这里是至关重要的一个地方，flash就是显示在id为flashcontent的标签下。
+        //so.write("flashcontent");
+    </script>
+</body>
+</html>

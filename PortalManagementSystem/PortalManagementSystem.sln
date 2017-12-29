@@ -1,0 +1,103 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSModel", "HZModel\PMSModel.csproj", "{09718053-7CBE-48A8-B5D1-C57EC8E1413B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSUtility", "HZUtility\PMSUtility.csproj", "{B8995B4B-5D18-4EAA-AA27-DE997FF92BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSWeb", "HZWeb\PMSWeb.csproj", "{5E4A5D30-5919-4A83-811F-B908F182BFF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSIBLL", "HZIBLL\PMSIBLL.csproj", "{F63F3F9A-CD8B-463C-87AA-1C93E1CB6C0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSIDAL", "HZIDAL\PMSIDAL.csproj", "{37DB764B-A2F7-45D3-8D0D-2F252DA66AFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSHanderler", "HZHanderler\PMSHanderler.csproj", "{7E5EAD20-1859-4B89-9D85-640DC89A682E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSDAL", "HZDAL\PMSDAL.csproj", "{4453A441-488D-4380-9B09-9BAE683E7524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSBLL", "HZBLL\PMSBLL.csproj", "{EED7E622-A6B2-43F6-852A-0D4B47C4E74D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTest", "AppTest\AppTest.csproj", "{4CD59498-9C94-4038-B7A9-35B8104190CB}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.1.211:8080/tfs/%E9%97%A8%E6%88%B7%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = HZBLL\\PMSBLL.csproj
+		SccProjectName1 = HZBLL
+		SccLocalPath1 = HZBLL
+		SccProjectUniqueName2 = HZDAL\\PMSDAL.csproj
+		SccProjectName2 = HZDAL
+		SccLocalPath2 = HZDAL
+		SccProjectUniqueName3 = HZHanderler\\PMSHanderler.csproj
+		SccProjectName3 = HZHanderler
+		SccLocalPath3 = HZHanderler
+		SccProjectUniqueName4 = HZIBLL\\PMSIBLL.csproj
+		SccProjectName4 = HZIBLL
+		SccLocalPath4 = HZIBLL
+		SccProjectUniqueName5 = HZIDAL\\PMSIDAL.csproj
+		SccProjectName5 = HZIDAL
+		SccLocalPath5 = HZIDAL
+		SccProjectUniqueName6 = HZModel\\PMSModel.csproj
+		SccProjectName6 = HZModel
+		SccLocalPath6 = HZModel
+		SccProjectUniqueName7 = HZUtility\\PMSUtility.csproj
+		SccProjectName7 = HZUtility
+		SccLocalPath7 = HZUtility
+		SccProjectUniqueName8 = HZWeb\\PMSWeb.csproj
+		SccProjectName8 = HZWeb
+		SccLocalPath8 = HZWeb
+		SccProjectUniqueName9 = AppTest\\AppTest.csproj
+		SccProjectName9 = AppTest
+		SccLocalPath9 = AppTest
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09718053-7CBE-48A8-B5D1-C57EC8E1413B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09718053-7CBE-48A8-B5D1-C57EC8E1413B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09718053-7CBE-48A8-B5D1-C57EC8E1413B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09718053-7CBE-48A8-B5D1-C57EC8E1413B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8995B4B-5D18-4EAA-AA27-DE997FF92BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8995B4B-5D18-4EAA-AA27-DE997FF92BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8995B4B-5D18-4EAA-AA27-DE997FF92BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8995B4B-5D18-4EAA-AA27-DE997FF92BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E4A5D30-5919-4A83-811F-B908F182BFF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E4A5D30-5919-4A83-811F-B908F182BFF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E4A5D30-5919-4A83-811F-B908F182BFF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E4A5D30-5919-4A83-811F-B908F182BFF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F63F3F9A-CD8B-463C-87AA-1C93E1CB6C0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F63F3F9A-CD8B-463C-87AA-1C93E1CB6C0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F63F3F9A-CD8B-463C-87AA-1C93E1CB6C0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F63F3F9A-CD8B-463C-87AA-1C93E1CB6C0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37DB764B-A2F7-45D3-8D0D-2F252DA66AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37DB764B-A2F7-45D3-8D0D-2F252DA66AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37DB764B-A2F7-45D3-8D0D-2F252DA66AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37DB764B-A2F7-45D3-8D0D-2F252DA66AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E5EAD20-1859-4B89-9D85-640DC89A682E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5EAD20-1859-4B89-9D85-640DC89A682E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5EAD20-1859-4B89-9D85-640DC89A682E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5EAD20-1859-4B89-9D85-640DC89A682E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4453A441-488D-4380-9B09-9BAE683E7524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4453A441-488D-4380-9B09-9BAE683E7524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4453A441-488D-4380-9B09-9BAE683E7524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4453A441-488D-4380-9B09-9BAE683E7524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EED7E622-A6B2-43F6-852A-0D4B47C4E74D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EED7E622-A6B2-43F6-852A-0D4B47C4E74D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EED7E622-A6B2-43F6-852A-0D4B47C4E74D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EED7E622-A6B2-43F6-852A-0D4B47C4E74D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CD59498-9C94-4038-B7A9-35B8104190CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CD59498-9C94-4038-B7A9-35B8104190CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CD59498-9C94-4038-B7A9-35B8104190CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CD59498-9C94-4038-B7A9-35B8104190CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

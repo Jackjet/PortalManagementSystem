@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+</head>
+<body>
+    <div>
+        <script id="editor" type="text/plain" style="width: 100%; height: 300px;">
+        </script>
+    </div>
+    <script type="text/javascript">
+        //实例化编辑器
+        function delHtmlTag(str) {
+            return str.replace(/<[^>]+>/g, "");//去掉所有的html标记
+        }
+        var str = '<div class="ExternalClassB857487C99C24019A20472EAE0AB9185"><p>?<font size="4">2016年7月30日，<font style="font-style:normal;color:#cc0000;"><b>延庆</b></font>区教委副主任张平、中教科科长李张、副科长解维到<font style="font-style:normal;color:#cc0000;"><b>延庆</b></font>一中指导工作。张平副主任一行首先深入课堂了解高三暑期辅导教学情况，听了田新梅老师作的历史研究课；随后与陶汪来校长、杨红霞书记等行政干部就学校工作进行了研讨。张平主任强调，面对高考改革的大趋势，必须转变教师观念，课堂教学要符合高考方向，明确发展目标，<font style="font-style:normal;color:#cc0000;"><b>延庆</b></font>一中要在高中教育集团起到引领的作用，带动<font style="font-style:normal;color:#cc0000;"><b>延庆</b></font>教育共同发展。<img alt="201673017247216.jpg" src="/YQYZ/Attatchment/AdvertImgContent/201673017247216.jpg" style="margin&#58;5px;width&#58;700px;height&#58;390px;vertical-align&#58;middle;float&#58;none;" /><img alt="2016730171859783.jpg" src="/YQYZ/Attatchment/AdvertImgContent/2016730171859783.jpg" style="margin&#58;5px;width&#58;700px;height&#58;525px;" /><img alt="2016730171724572.jpg" src="/YQYZ/Attatchment/AdvertImgContent/2016730171724572.jpg" style="margin&#58;5px;width&#58;700px;height&#58;469px;" /></font></p></div>';
+        str = delHtmlTag(str);
+        alert(str);
+
+    </script>
+</body>
+</html>

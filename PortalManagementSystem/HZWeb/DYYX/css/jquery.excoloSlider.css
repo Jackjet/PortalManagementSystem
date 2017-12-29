@@ -1,0 +1,81 @@
+/* slider
+----------------------------------------------------------*/
+
+.slide > * {
+   width:528px;height:297px;
+}
+.slider .slide-prev {
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    left: 0;
+    top: 43%;
+    margin-top: -24px;
+    background-color: rgba(255,255,255,0.8);
+    padding: 0px;
+}
+.slider .slide-next {
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
+    position: absolute;
+    right: 0;
+    top: 43%;
+    margin-top: -24px;
+    background-color: rgba(255,255,255,0.8);
+    padding: 0px;
+}
+.slider .slide-next:hover, .slider .slide-prev:hover {
+    background-color: rgba(255,255,255,0.9);
+}
+.slider .slide-next img, .slider .slide-prev img {
+    position: relative;
+    top: 0;
+    left: 0;
+    max-height: 100%;
+    max-width: 100%;
+}
+.es-caption {
+    position: absolute;
+    bottom:30px;
+    text-align: center;
+    
+    color: #fff;
+    background:#000;
+    opacity:0.6;
+    font-size: 14px;
+    padding: 16px;
+    width: auto;
+    margin-right:9px;
+    left: 0;
+    right: 0;
+    height:36px;
+}
+ul.es-pager {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 5px 0 0 0;
+    padding: 0;
+    line-height: 0px;
+}
+ul.es-pager li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 16px;
+    width: 16px;
+    /*background-image: url("../Images/pagericon.png");*/
+    background-repeat: no-repeat;
+    background-position: 0 -16px;
+    cursor: pointer;
+}
+ul.es-pager li:hover, ul.es-pager li.act {
+    background-position: 0 0;
+}
+ul.es-pager li.act {
+    cursor: default;
+}
+
+.slider{width:537px; float:left; height:300px; margin-left:24px; background:url("../images/newlunbo.png") no-repeat ;}

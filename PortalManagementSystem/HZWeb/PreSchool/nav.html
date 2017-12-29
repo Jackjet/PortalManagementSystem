@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="renderer" content="webkit" /> 
+        
+		<title>北京市昌平区财贸幼儿园</title>
+        <script type="text/x-jquery-tmpl" id="menu">
+            <li>
+                <dl class="xiala">
+                    <dt>
+                        <a selfid="${Id}" href="${BeforeUrl}">${Name}</a>
+                    </dt>
+                    <dd>
+                        <div class="lie" style="display: none;">
+                            <ul class="liea" id="sub_menu_${Id}"></ul>
+                        </div>
+                    </dd>
+                </dl>
+            </li>
+        </script>
+        <script type="text/x-jquery-tmpl" id="menu_sup">
+            <li><a selfid="${Id}" href="${BeforeUrl}">${Name}</a></li>
+        </script>
+	</head>
+	<body>
+		<ul class="center clearfix" id="menuList">
+			<!--<li class="bgf3664a">
+				<a href="">首页</a>
+			</li>
+			<li class="bgfa8424">
+				<a href="">园所概况</a>
+			</li>
+			<li class="bg56c93b">
+				<a href="">卫生保健</a>
+			</li>
+			<li class="bgf7bb10">
+				<a href="">需换掉的</a>
+			</li>
+			<li class="bg13c7ea">
+				<a href="">师资培养</a>
+			</li>
+			<li class="bg4e92db">
+				<a href="">教育科研</a>
+			</li>
+			<li class="bg7261b2">
+				<a href="">实践研究</a>
+			</li>
+			<li class="bgf06246">
+				<a href="">党团工会</a>
+			</li>
+			<li class="bgfa8424">
+				<a href="">社会早教</a>
+			</li>
+			<li class="bgf7bb10">
+				<a href="">家园共育</a>
+			</li>
+			<li class="bg56c93b">
+				<a href="">养成教育</a>
+			</li>-->
+		</ul>
+
+        <script>
+            $(document).ready(function () {
+                initMenu();
+            })
+    
+    function initMenu() {
+        $.ajax({
+            type: "Post",
+            url: "/Common.ashx",
+            async: false,
+            dataType: "json",
+            data: {
+                "PageName": "DYYX/AdminManagerHandler.ashx",
+                "func": "GetBeforeMenu",
+                "IsDelete": 0,
+                "Display": 0,
+                "BeforeAfter": 0
+            },
+            success: function (json) {
+                if (json.result.errMsg == "success") {
+                    //debugger;
+                    $("#menuList").html("");
+                    $("#menuList").html(json.result.retData);
+                    
+                    $('.xiala').hover(function () {
+                        $(this).find('dt').addClass('hover');
+                        $(this).find(".lie").show();
+                    }, function () {
+                        $(this).find('dt').removeClass('hover');
+                        $(this).find(".lie").hide();
+                    })
+                    var len = $('#menuList>li').length;
+                    $('#menuList>li').width(100 / len + '%');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            }
+        });
+    }
+        </script>
+	</body>
+</html>

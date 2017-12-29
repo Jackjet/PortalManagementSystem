@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<note>
+ 
+  <ImgScrollNum>3</ImgScrollNum>
+  <!--<RederPages>10</RederPages>-->
+
+
+  <!--展示类型【1为弹出窗口,2为列表展示】-->
+  <NoticeDisplayType>2</NoticeDisplayType>
+  <!--是否展示滚动公告【0为显示,1为不显示】-->
+  <IsShowNotiecRoll>0</IsShowNotiecRoll>
+</note>

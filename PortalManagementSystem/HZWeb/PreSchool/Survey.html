@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title>北京市昌平区财贸幼儿园</title>
+    <script src="/Scripts/jquery.tmpl.js"></script>
+    <script src="/Scripts/jquery.cookie.js"></script>
+    <style>
+        .close {
+            width: 30px;
+            height: 30px;
+            background: #58d16d;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            font-size: 18px;
+            position: absolute;
+            top: -18px;
+            right: 0px;
+            cursor: pointer;
+            z-index: 999;
+        }
+    </style>
+    <script id="item_vote" type="text/x-jquery-tmpl">
+        <li>
+            <input type="radio" name="vote" id="nav-${Id}" value="${Id}" vid="${VoteId}"/>
+            <label for="nav-${Id}">${Title}</label>
+        </li>
+    </script>    
+</head>
+<body>
+    <div class="survey_wrap">
+        <div class="close">x</div>
+        <div id="onlineSurvey" style="display:none;">
+            <h2 class="title">在线调查</h2>
+            <div class="survey">
+                <h1 id="h1_Title">你喜欢本站的哪个栏目？</h1>
+                <ul class="clearfix" id="vote_lists"></ul>
+                <div class="btnwrap clearfix">
+                    <input type="button" id="btn_vote" class="btn vote" value="投票" style="margin:0 auto;" />
+                </div>
+            </div>
+        </div>
+        <div id="onlineEnter" style="display:none;">
+            <h2 class="title">在线报名</h2>
+            <div class="enter_btn">
+                <div class="rowa clearfix">
+                    <label>宝宝姓名：</label>
+                    <input type="text" class="text" placeholder="请输入宝宝姓名" id="txt_Name">
+                </div>
+                <div class="rowa clearfix">
+                    <label>联系方式：</label>
+                    <input type="text" class="text" placeholder="请输入联系方式" id="txt_Phone">
+                </div>
+                <div class="rowa clearfix">
+                    <label>其他信息：</label>
+                    <textarea id="are_Descript" placeholder="请输入宝宝其他信息" class="textarea fr"></textarea>
+                </div>
+                <div class="btnwrap clearfix">
+                    <input type="button" id="btn_sign" class="btn vote" value="报名" style="margin:0 auto;" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.close').click(function () {
+                $('#survey_wrap').remove();
+            });
+            GetFloatVote();
+        });
+        function GetFloatVote() {
+            $.ajax({
+                url: "/Common.ashx",
+                type: "post",
+                async: false,
+                dataType: "json",
+                data: {
+                    PageName: "DYYX/AdminManagerHandler.ashx",
+                    Func: "GetVoteList",
+                    PageIndex: 1,
+                    pageSize: 1,
+                    IsDelete: 0,
+                    isPush:1
+                },
+                success: function (json) {
+                    if (json.result.errMsg == "success") {                       
+                        var items = json.result.retData.PagedData;
+                        if (items != null && items.length > 0) {                            
+                            if (items[0].Title.indexOf("报名") != -1) {
+                                $("#onlineEnter").show();
+                                $("#btn_sign").click(function () {
+                                    SignUp(items[0].Id);                      
+                                });
+                            } else {
+                                $("#h1_Title").html(items[0].Title);
+                                $("#onlineSurvey").show();
+                                $("#btn_vote").click(function () {
+                                    InserVote();                        
+                                });
+                                GetVoteDetails(items[0].Id);
+                            }                           
+                        } 
+                    } else {
+                        $(".survey_wrap").hide();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {}
+            });
+        }
+        function GetVoteDetails(votes) {
+            $("#vote_lists").html('');
+            $.ajax({
+                type: "Post",
+                url: "/Common.ashx",
+                async: false,
+                dataType: "json",
+                data: {
+                    PageName: "DYYX/AdminManagerHandler.ashx",
+                    func: "GetVoteDetailList",
+                    VoteId: votes
+                },
+                success: function (json) {
+                    if (json.result.errMsg == "success") {
+                        var items = json.result.retData;
+                        if (items != null && items.length > 0)
+                            $("#item_vote").tmpl(items).appendTo("#vote_lists");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) { }
+            });
+        }
+        //投票
+        function InserVote() {
+            var selobj = $('#vote_lists input:radio[name="vote"]:checked');            
+            if (!selobj.length) {
+                layer.msg("请选择一个结果后提交！");
+                return false;
+            }
+            var answerId = selobj.val();
+            var vid = selobj.attr("vid");
+            if ($.cookie('vote_yqyz' + vid) != null && $.cookie('vote_yqyz' + vid) != "null" && $.cookie('vote_yqyz' + vid) != "") {
+                layer.msg("每日只能投票一次！");
+                return false;
+            }
+            $.ajax({
+                url: "/Common.ashx",
+                type: "post",
+                async: false,
+                dataType: "json",
+                data: {
+                    PageName: "DYYX/AdminManagerHandler.ashx",
+                    Func: "EditVoteRecord",
+                    isPush: 1,
+                    detailId: answerId
+                },
+                success: function (json) {
+                    if (json.result.errMsg == "success") {
+                        $.cookie('vote_yqyz' + vid, "yes", { path: '/', secure: false, expires: 1 });
+                        layer.msg("投票成功！");
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {}
+            });
+        }
+        //报名
+        function SignUp(voteid) {
+            var name = $("#txt_Name").val().trim();
+            var phone = $("#txt_Phone").val().trim();
+            var are_Descript = $("#are_Descript").val().trim();
+            if (!name.length) { layer.msg("请填写宝宝姓名！"); return; }
+            if (!phone.length) { layer.msg("请填写联系方式！"); return; }
+            if (name.indexOf(",") > -1) {
+                layer.msg("宝宝姓名不能包含<q>,</q>字符");
+                return false;
+            }
+            if (!checkTel(phone)) {
+                layer.msg("请填写正确的联系方式");
+                return false;
+            }
+            $.ajax({
+                url: "/Common.ashx",
+                type: "post",
+                async: false,
+                dataType: "json",
+                data: {
+                    PageName: "DYYX/AdminManagerHandler.ashx",
+                    Func: "VoteSignUp",
+                    VoteId:voteid,
+                    Name: name,
+                    Phone: phone,
+                    Descript: are_Descript
+                },
+                success: function (json) {
+                    var result = json.result;
+                    if (result.errNum == -1) {
+                        layer.msg("您已经报名了!");
+                    }
+                    if (result.errNum ==0) {
+                        layer.msg("报名成功！");
+                        $("#txt_Name").val('');
+                        $("#txt_Phone").val('');
+                        $("#are_Descript").val('');
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) { }
+            });
+        }
+        function checkTel(value){
+            var isPhone = /^([0-9]{3,4}-)?[0-9]{7,8}$/;
+            var isMob=/^((\+?86)|(\(\+86\)))?(13[012356789][0-9]{8}|15[012356789][0-9]{8}|18[02356789][0-9]{8}|147[0-9]{8}|1349[0-9]{7})$/;
+            if(isMob.test(value)||isPhone.test(value)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</html>
